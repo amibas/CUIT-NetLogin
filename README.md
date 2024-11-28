@@ -29,7 +29,7 @@
 
 1. 克隆项目
 ```bash
-git clone https://github.com/your-repo/campus-network-auto-login.git
+git clone https://github.com/amibas/CUIT-NetLogin.git
 ```
 
 2. 安装依赖
