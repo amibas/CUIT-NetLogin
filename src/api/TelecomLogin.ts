@@ -1,4 +1,4 @@
-import { fetch } from '@tauri-apps/plugin-http';
+import {fetch} from '@tauri-apps/plugin-http';
 
 interface LoginData {
     [key: string]: string;
@@ -42,13 +42,13 @@ export async function telecomLogin(studentId: string, password: string) {
     };
 
     try {
-        const response = await fetch(TELECOM_URL, {
+        return await fetch(TELECOM_URL, {
             method: 'POST',
             headers: headers,
             body: new URLSearchParams(data)
         });
-        
-        return response;
+
+
     } catch (error) {
         console.error('登录失败:', error);
         throw error;

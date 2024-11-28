@@ -9,23 +9,23 @@
                         用户名
                     </label>
                     <input type="text" id="username" v-model="userStore.username" placeholder="请输入用户名" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors">
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors">
                 </div>
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
                         密码
                     </label>
                     <input type="password" id="password" v-model="userStore.password" placeholder="请输入密码" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors">
+                           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors">
                 </div>
                 <div>
                     <label for="operator" class="block text-sm font-medium text-gray-700 mb-2">
                         运营商
                     </label>
                     <select id="operator" v-model="userStore.operator"
-                        class="w-full px-4 py-2 pr-8 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors appearance-none cursor-pointer bg-[url('@/assets/icons/chevron-down.svg')] bg-[length:1.25rem_1.25rem] bg-[right_0.5rem_center] bg-no-repeat backdrop-blur-sm bg-white/30">
+                            class="w-full px-4 py-2 pr-8 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors appearance-none cursor-pointer bg-[url('@/assets/icons/chevron-down.svg')] bg-[length:1.25rem_1.25rem] bg-[right_0.5rem_center] bg-no-repeat backdrop-blur-sm bg-white/30">
                         <option v-for="op in operators" :key="op.value" :value="op.value"
-                            class="py-2 px-4 hover:bg-gray-100 backdrop-blur-sm bg-white/70">
+                                class="py-2 px-4 hover:bg-gray-100 backdrop-blur-sm bg-white/70">
                             {{ op.label }}
                         </option>
                     </select>
@@ -33,48 +33,48 @@
                 <div class="flex items-center justify-center gap-8">
                     <label class="flex items-center" for="rememberPassword">
                         <input type="checkbox" id="rememberPassword" v-model="configStore.rememberPassword"
-                            class="rounded border-gray-300 text-blue-500 focus:border-blue-500 focus:ring-blue-500">
+                               class="rounded border-gray-300 text-blue-500 focus:border-blue-500 focus:ring-blue-500">
                         <span class="ml-2 text-sm text-gray-600">记住密码</span>
                     </label>
                     <label class="flex items-center" for="autoLogin">
                         <input type="checkbox" id="autoLogin" v-model="configStore.autoLogin"
-                            class="rounded border-gray-300 text-blue-500 focus:border-blue-500 focus:ring-blue-500">
+                               class="rounded border-gray-300 text-blue-500 focus:border-blue-500 focus:ring-blue-500">
                         <span class="ml-2 text-sm text-gray-600">自动登录</span>
                     </label>
                     <label class="flex items-center" for="autoStart">
                         <input type="checkbox" id="autoStart" v-model="configStore.autostart"
-                            class="rounded border-gray-300 text-blue-500 focus:border-blue-500 focus:ring-blue-500">
+                               class="rounded border-gray-300 text-blue-500 focus:border-blue-500 focus:ring-blue-500">
                         <span class="ml-2 text-sm text-gray-600">开机启动</span>
                     </label>
                 </div>
                 <button type="submit"
-                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                        class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
                     登录
                 </button>
             </form>
         </div>
-        <AlertDialog :show="showAlert" :title="alertTitle" :message="alertMessage" :onClose="() => showAlert = false" />
+        <AlertDialog :show="showAlert" :title="alertTitle" :message="alertMessage" :onClose="() => showAlert = false"/>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import { useUserStore } from '../stores/user'
-import { telecomLogin } from '../api/TelecomLogin'
-import { verifyLogin } from '../api/VerifyLogin'
+import {onMounted} from 'vue'
+import {useRouter} from 'vue-router'
+import {useUserStore} from '../stores/user'
+import {telecomLogin} from '../api/TelecomLogin'
+import {verifyLogin} from '../api/VerifyLogin'
 import AlertDialog from '../components/AlertDialog.vue'
-import { useConfigStore } from '../stores/config'
-import { useMessage } from '../hooks/useMessage'
+import {useConfigStore} from '../stores/config'
+import {useMessage} from '../hooks/useMessage'
 
 const router = useRouter()
 const userStore = useUserStore()
 const configStore = useConfigStore()
-const { showAlert, alertMessage, alertTitle, showError } = useMessage()
+const {showAlert, alertMessage, alertTitle, showError} = useMessage()
 
 const operators = [
-    { value: 'telecom', label: '电信' },
-    { value: 'mobile', label: '移动' }
+    {value: 'telecom', label: '电信'},
+    {value: 'mobile', label: '移动'}
 ]
 
 const initializeApp = async () => {
@@ -112,9 +112,4 @@ const handleLogin = async () => {
 </script>
 
 <style scoped>
-.error-message {
-    color: rgb(239 68 68);
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-}
 </style>

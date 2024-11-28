@@ -1,4 +1,4 @@
-import { enable, disable, isEnabled } from '@tauri-apps/plugin-autostart'
+import {enable, disable, isEnabled} from '@tauri-apps/plugin-autostart'
 
 export async function enableAutostart(): Promise<void> {
     try {

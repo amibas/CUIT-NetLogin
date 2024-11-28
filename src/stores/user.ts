@@ -1,6 +1,5 @@
-import { defineStore } from 'pinia'
-import { Store } from '@tauri-apps/plugin-store'
-import { useConfigStore } from './config'
+import {defineStore} from 'pinia'
+import {Store} from '@tauri-apps/plugin-store'
 
 let store = await Store.get('user-store.json');
 if (!store) {

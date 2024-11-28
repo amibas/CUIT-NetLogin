@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { useUserStore } from '../stores/user'
+import {onMounted, ref} from 'vue'
+import {useUserStore} from '../stores/user'
 
 const userStore = useUserStore()
 const username = ref('')

@@ -1,6 +1,6 @@
-import { Store } from '@tauri-apps/plugin-store'
-import { defineStore } from 'pinia'
-import { enableAutostart, disableAutostart, isAutostartEnabled } from '../config/autostart'
+import {Store} from '@tauri-apps/plugin-store'
+import {defineStore} from 'pinia'
+import {enableAutostart, disableAutostart, isAutostartEnabled} from '../config/autostart'
 
 let store = await Store.get('config.json')
 if (!store) {
@@ -34,6 +34,13 @@ export const useConfigStore = defineStore({
             await store.set('autostart', this.autostart)
             await store.set('rememberPassword', this.rememberPassword)
             await store.set('autoLogin', this.autoLogin)
+
+            if (this.autostart) {
+                await enableAutostart()
+            } else {
+                await disableAutostart()
+            }
+
             await store.save()
         }
     }
